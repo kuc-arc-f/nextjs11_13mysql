@@ -23,7 +23,7 @@ const LibTask = {
       const item = await prisma.task.findUnique({
         where: { id: Number(id) },
       });     
-//console.log( item)       
+console.log( item)       
       await prisma.$disconnect();
       return item;
     } catch (err) {

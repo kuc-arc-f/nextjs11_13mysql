@@ -1,6 +1,6 @@
 import { Config } from "apollo-server-micro";
 import LibTask from '../lib/LibTask';
-//import LibUser from '../lib/LibUser';
+import LibUser from '../lib/LibUser';
 
 export const resolvers: Config["resolvers"] = {
   Query: {
@@ -16,14 +16,14 @@ export const resolvers: Config["resolvers"] = {
     user: async(parent: any, args: any, context: any, info: any) => {
       return await LibUser.getUser(args.id);
     },
+    */
+    userCount:async () => {
+      return await LibUser.userCount();
+    },
     userValid: async(parent: any, args: any, context: any, info: any) => {
       const user = await LibUser.validUser(args);
       return user;
     },
-    userCount:async () => {
-      return await LibUser.userCount();
-    },
-    */
   },
   Mutation: {
     addTask: async (parent, args, context) => {
@@ -39,11 +39,9 @@ export const resolvers: Config["resolvers"] = {
       return ret
     },
     /* user */    
-    /*
     addUser: async (parent: any, args: any, context: any) => {
       const ret = await LibUser.addUser(args)
       return ret
     },              
-    */
   }
 };

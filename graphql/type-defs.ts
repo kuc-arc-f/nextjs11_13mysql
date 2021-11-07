@@ -12,6 +12,8 @@ export const typeDefs: Config["typeDefs"] = gql`
   type Task {
     id: String
     title: String
+    content: String!
+    createdAt: String!
   }
   ${GQL_QUERY}
   ${GQL_MUTATION}

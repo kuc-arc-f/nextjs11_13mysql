@@ -6,7 +6,7 @@ export const GQL_QUERY = `
     users: [User]    
     userValid(email: String!, password: String!): User  
     userCount: Int  
-    task(id: String): Task
-    tasks: [Task] 
+    task(id: Int): Task
+    tasks: [Task]
   }
 `;
