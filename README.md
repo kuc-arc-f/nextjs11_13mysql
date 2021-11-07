@@ -38,6 +38,9 @@ yarn dev
 
 ***
 ### Blog:
+* vercel + apollo-server-micro + prisma の例
+
+ https://zenn.dev/knaka0209/books/261398faf9b13a/viewer/7688dc
 
 ***
 
