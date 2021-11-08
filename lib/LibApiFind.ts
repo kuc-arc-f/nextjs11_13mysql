@@ -1,13 +1,13 @@
 import moment from 'moment'
+
 const LibApiFind = {
   convertItems: function(items: any[]){
-    const ret: any[] =[]
+    const ret: any[] =[];
     items.forEach(function(item){
-    let dt = moment(item.created_at);
-    const dtStr = dt.format("YYYY-MM-DD HH:mm")
+      let dt = moment(item.createdAt);
+      const dtStr = dt.format("YYYY-MM-DD HH:mm")
 //console.log(dt)
-      item.id = item._id;
-      item.created_at = dtStr;
+      item.createdAt = dtStr;
       ret.push(item)                        
     });        
     return ret
@@ -15,9 +15,8 @@ const LibApiFind = {
   convertItemOne: function(item: any){
     let ret ={}
     const row: any ={
-      id: item._id,
-      _id: item._id,
-      created_at: item.created_at,
+      id: item.id,
+      created_at: item.createdAt,
     }
     item.values.forEach(function(value_item :any){
       row[value_item.name] = value_item.value

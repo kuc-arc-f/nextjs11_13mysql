@@ -26,7 +26,7 @@ function Index(props) {
           <tbody>
           {items.map((item, index) => {
             return (<IndexRow key={index}
-                  id={item.id} title={item.title} date={item.created_at} />       
+                  id={item.id} title={item.title} date={item.createdAt} />       
             )
           })}
           </tbody>

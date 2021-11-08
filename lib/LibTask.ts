@@ -1,4 +1,5 @@
 const { PrismaClient } = require('@prisma/client')
+import LibApiFind from './LibApiFind';
 
 interface IArgs {
   id: number,
@@ -9,8 +10,13 @@ const LibTask = {
   getItems :async function(){
     try {
       const prisma = new PrismaClient()
-      const items = await prisma.task.findMany()
-      await prisma.$disconnect()
+      let items = await prisma.task.findMany({
+        orderBy: [
+          { id: 'desc', },
+        ],
+      });
+      await prisma.$disconnect();
+      items = LibApiFind.convertItems(items);
 //console.log( items)
       return items;
     } catch (err) {
